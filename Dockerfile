@@ -35,6 +35,12 @@ COPY /docker/docker-bootstrap.sh /app/docker/
 COPY /docker/docker-init.sh /app/docker
 COPY /docker/docker-entrypoint.sh /app/docker/
 
+# We give permissions to different files
+RUN chmod +x /app/docker/superset-entrypoint.sh
+RUN chmod +x /app/docker/docker-entrypoint.sh
+RUN chmod +x /app/docker/docker-init.sh
+RUN chmod +x /app/docker/docker-bootstrap.s
+
 # We switch back to the `superset` user
 USER superset
 ENTRYPOINT ["/tini", "-g", "--","/app/docker/docker-entrypoint.sh"]
