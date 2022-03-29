@@ -43,4 +43,4 @@ RUN chmod +x /app/docker/docker-bootstrap.sh
 
 # We switch back to the `superset` user
 USER superset
-ENTRYPOINT ["/tini", "-g", "--","/app/docker/docker-entrypoint.sh"]
+#ENTRYPOINT ["/bin/bash", "-c", "echo", "this is the dockerfile command; it should never be run."]
