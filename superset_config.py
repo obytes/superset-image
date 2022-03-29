@@ -45,11 +45,11 @@ SQLALCHEMY_DATABASE_URI = "%s://%s:%s@%s:%s/%s" % (
 
 REDIS_HOST = get_env_variable("REDIS_HOST")
 REDIS_PORT = get_env_variable("REDIS_PORT")
-REDIS_CELERY_DB = get_env_variable("REDIS_CELERY_DB", "0")
-REDIS_RESULTS_DB = get_env_variable("REDIS_RESULTS_DB", "1")
+REDIS_CELERY_DB = get_env_variable("REDIS_CELERY_DB", "1")
+REDIS_RESULTS_DB = get_env_variable("REDIS_RESULTS_DB", "2")
+REDIS_CACHE_DB = get_env_variable("REDIS_RESULTS_DB", "3")
 
 RESULTS_BACKEND = FileSystemCache("/app/superset_home/sqllab")
-
 
 class CeleryConfig(object):
     BROKER_URL = f"redis://{REDIS_HOST}:{REDIS_PORT}/{REDIS_CELERY_DB}"
@@ -73,6 +73,20 @@ class CeleryConfig(object):
 CELERY_CONFIG = CeleryConfig
 RESULTS_BACKEND = RedisCache(
     host=REDIS_HOST, port=REDIS_PORT, key_prefix='superset_results')
+
+# TODO: Should we add the other caches?
+FILTER_STATE_CACHE_CONFIG = {
+    "CACHE_TYPE": "redis",
+    "CACHE_REDIS_HOST": REDIS_HOST,
+    "CACHE_REDIS_PORT": REDIS_PORT,
+    "CACHE_REDIS_DB": REDIS_CACHE_DB,
+}
+EXPLORE_FORM_DATA_CACHE_CONFIG = {
+    "CACHE_TYPE": "redis",
+    "CACHE_REDIS_HOST": REDIS_HOST,
+    "CACHE_REDIS_PORT": REDIS_PORT,
+    "CACHE_REDIS_DB": REDIS_CACHE_DB,
+}
 
 FEATURE_FLAGS = {"ALERT_REPORTS": True}
 ALERT_REPORTS_NOTIFICATION_DRY_RUN = True
