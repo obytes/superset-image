@@ -39,7 +39,7 @@ COPY /docker/docker-entrypoint.sh /app/docker/
 RUN chmod +x /app/docker/superset-entrypoint.sh
 RUN chmod +x /app/docker/docker-entrypoint.sh
 RUN chmod +x /app/docker/docker-init.sh
-RUN chmod +x /app/docker/docker-bootstrap.s
+RUN chmod +x /app/docker/docker-bootstrap.sh
 
 # We switch back to the `superset` user
 USER superset
