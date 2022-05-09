@@ -155,7 +155,13 @@ RESULTS_BACKEND = RedisCache(
     host=REDIS_HOST, port=REDIS_PORT, key_prefix='superset_results')
 
 FEATURE_FLAGS = {"ALERT_REPORTS": True,
-                 "DASHBOARD_RBAC": True}
+                 "DASHBOARD_RBAC": True,
+                     "DASHBOARD_NATIVE_FILTERS": True,
+                "DASHBOARD_CROSS_FILTERS": True,
+                "DASHBOARD_NATIVE_FILTERS_SET": True,
+                "DASHBOARD_FILTERS_EXPERIMENTAL": True,
+                "GLOBAL_ASYNC_QUERIES": True,
+                "EMBEDDED_SUPERSET": True}
 
 # TODO: Should we add the other caches?
 FILTER_STATE_CACHE_CONFIG = {
