@@ -99,9 +99,9 @@ def get_env_variable(var_name: str, default: Optional[str] = None) -> str:
 ## Data Amounts
 
 # default row limit when requesting chart data
-ROW_LIMIT = 1000000
+ROW_LIMIT = 10000000
 # default row limit when requesting samples from datasource in explore view
-SAMPLES_ROW_LIMIT = 150
+SAMPLES_ROW_LIMIT = 1000
 # max rows retrieved by filter select auto complete
 FILTER_SELECT_ROW_LIMIT = 10000
 DATABASE_DIALECT = get_env_variable("DATABASE_DIALECT")
@@ -155,12 +155,11 @@ RESULTS_BACKEND = RedisCache(
     host=REDIS_HOST, port=REDIS_PORT, key_prefix='superset_results')
 
 FEATURE_FLAGS = {"ALERT_REPORTS": True,
-                 "DASHBOARD_RBAC": True,
-                     "DASHBOARD_NATIVE_FILTERS": True,
+                "DASHBOARD_RBAC": True,
+                "DASHBOARD_NATIVE_FILTERS": True,
                 "DASHBOARD_CROSS_FILTERS": True,
                 "DASHBOARD_NATIVE_FILTERS_SET": True,
-                "DASHBOARD_FILTERS_EXPERIMENTAL": True,
-                "GLOBAL_ASYNC_QUERIES": True,
+                 "GENERIC_CHART_AXES": True,
                 "EMBEDDED_SUPERSET": True}
 
 # TODO: Should we add the other caches?
