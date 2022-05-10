@@ -160,7 +160,8 @@ FEATURE_FLAGS = {"ALERT_REPORTS": True,
                 "DASHBOARD_CROSS_FILTERS": True,
                 "DASHBOARD_NATIVE_FILTERS_SET": True,
                  "GENERIC_CHART_AXES": True,
-                "EMBEDDED_SUPERSET": True}
+                "EMBEDDED_SUPERSET": True,
+                 "ENABLE_TEMPLATE_PROCESSING": True}
 
 # TODO: Should we add the other caches?
 FILTER_STATE_CACHE_CONFIG = {
