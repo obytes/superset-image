@@ -161,7 +161,9 @@ FEATURE_FLAGS = {"ALERT_REPORTS": True,
                 "DASHBOARD_NATIVE_FILTERS_SET": True,
                  "GENERIC_CHART_AXES": True,
                 "EMBEDDED_SUPERSET": True,
-                 "ENABLE_TEMPLATE_PROCESSING": True}
+                 "ENABLE_TEMPLATE_PROCESSING": True,
+                 "THUMBNAILS": True,
+                 "THUMBNAIL_CACHE_CONFIG": CacheConfig = { "CACHE_TYPE": "null", "CACHE_NO_NULL_WARNING": True}}
 
 # TODO: Should we add the other caches?
 FILTER_STATE_CACHE_CONFIG = {
